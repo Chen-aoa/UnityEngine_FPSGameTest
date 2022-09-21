@@ -64,13 +64,13 @@ public class PlayerMovement : MonoBehaviour
         {
             _velocityZ += Time.deltaTime * _acceleration;
         }
-        if (backPressed && _velocityZ > -1.01f)
-        {
-            _velocityZ -= Time.deltaTime * _acceleration;
-        }
         if (leftPressed && _velocityX < 1.01f)
         {
             _velocityX += Time.deltaTime * _acceleration;
+        }
+        if (backPressed && _velocityZ > -1.01f)
+        {
+            _velocityZ -= Time.deltaTime * _acceleration;
         }
         if (rightPressed && _velocityX > -1.01f)
         {
@@ -98,4 +98,5 @@ public class PlayerMovement : MonoBehaviour
         _characterController.Move(_velocity * Time.deltaTime);
 
     }
+
 }
