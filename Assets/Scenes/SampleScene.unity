@@ -11629,6 +11629,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: 10
   _range: 100
+  fireRate: 15
   _fpsCamera: {fileID: 963194227}
   _muzzleFlash: {fileID: 1006636509}
   _impactEffect: {fileID: 7362700214198969283, guid: 73168df0081d3c84d876d6de8d9ca9b7, type: 3}
@@ -28038,7 +28039,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6972897002622838691, guid: bdddce00259b17040b97398627cc34eb, type: 3}
       propertyPath: lengthInSec
-      value: 4
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6972897002622838691, guid: bdddce00259b17040b97398627cc34eb, type: 3}
+      propertyPath: ShapeModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6972897002622838691, guid: bdddce00259b17040b97398627cc34eb, type: 3}
+      propertyPath: InitialModule.size3D
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6972897002622838691, guid: bdddce00259b17040b97398627cc34eb, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
@@ -28060,6 +28069,14 @@ PrefabInstance:
       propertyPath: InitialModule.startRotationY.minMaxState
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6972897002631433005, guid: bdddce00259b17040b97398627cc34eb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6972897002631433005, guid: bdddce00259b17040b97398627cc34eb, type: 3}
+      propertyPath: OnlyDeactivate
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6972897002636993251, guid: bdddce00259b17040b97398627cc34eb, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -28070,15 +28087,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6972897002636993251, guid: bdddce00259b17040b97398627cc34eb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.04
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 6972897002636993251, guid: bdddce00259b17040b97398627cc34eb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.022
+      value: 0.023
       objectReference: {fileID: 0}
     - target: {fileID: 6972897002636993251, guid: bdddce00259b17040b97398627cc34eb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.474
+      value: 0.455
       objectReference: {fileID: 0}
     - target: {fileID: 6972897002636993251, guid: bdddce00259b17040b97398627cc34eb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -28111,6 +28128,10 @@ PrefabInstance:
     - target: {fileID: 6972897002637491907, guid: bdddce00259b17040b97398627cc34eb, type: 3}
       propertyPath: m_Name
       value: MuzzleFlashPartical
+      objectReference: {fileID: 0}
+    - target: {fileID: 6972897002637491907, guid: bdddce00259b17040b97398627cc34eb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdddce00259b17040b97398627cc34eb, type: 3}
