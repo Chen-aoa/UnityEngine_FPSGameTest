@@ -6,7 +6,6 @@ public class PlayerMovement : MonoBehaviour
 {
     //unity interface
     [SerializeField] private CharacterController _characterController;
-    private Animator _animator;
     [SerializeField] private float _speed = 5f;
     [SerializeField] private float _gravity = -9.81f;
     [SerializeField] private Transform _groundCheck;
@@ -23,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private float _velocityZ = 0f;
     private float _velocityX = 0f;
     private GameObject _character;
+    private Animator _animator;
     //static
     private static string HORIZONTAL = "Horizontal";
     private static string VERTICAL = "Vertical";
@@ -54,6 +54,11 @@ public class PlayerMovement : MonoBehaviour
         bool rightPressed = Input.GetKey("d");
         bool backPressed = Input.GetKey("s");
 
+
+        if (Input.GetButtonDown(JUMP) && _isGrounded)
+        {
+            _velocity.y = Mathf.Sqrt(_jumpHeight * -2f * _gravity);
+        }
 
         if (forwardPressed && _velocityZ < 1.01f)
         {
@@ -88,10 +93,6 @@ public class PlayerMovement : MonoBehaviour
         Vector3 move = transform.right * xPos + transform.forward * zPos;
         _characterController.Move(move * _speed * Time.deltaTime);
 
-        if (Input.GetButtonDown(JUMP) && _isGrounded)
-        {
-            _velocity.y = Mathf.Sqrt(_jumpHeight * -2f * _gravity);
-        }
 
         _velocity.y += _gravity * Time.deltaTime;
         _characterController.Move(_velocity * Time.deltaTime);
