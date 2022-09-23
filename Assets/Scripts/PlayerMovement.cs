@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     //unity interface
     [SerializeField] private CharacterController _characterController;
+    [SerializeField] private WeaponController _weaponController;
     [SerializeField] private float _speed = 5f;
     [SerializeField] private float _gravity = -9.81f;
     [SerializeField] private Transform _groundCheck;
@@ -16,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject _playerParent;
     [SerializeField] private float _acceleration = 5f;
     [SerializeField] private float _deceleration = 2f;
+
     //private
     private Vector3 _velocity;
     private bool _isGrounded;
@@ -30,6 +32,12 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         _character = Instantiate(_playerPrefabs, _playerParent.transform);
+        _weaponController.Movement += MovementState;
+    }
+    private void OnDestroy()
+    {
+        _weaponController.Movement -= MovementState;
+
     }
     private void Start()
     {
@@ -99,4 +107,8 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    private void MovementState(int speed)
+    {
+        _speed = speed;
+    }
 }
